@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "017k8cjsx74zzfw2dwgrlw49mjp21vzgvxpp47mw83fkfnp0fqbq";
-    aarch64-linux = "047z3wp306lxla37xsgjmxffq29d39q5l0b7iaz9i9y9ljingks4";
-    x86_64-darwin = "0rv9cvs0yr5gf1fab9x0p66jqyg6hbxciv6yilwy9ha40hm16p7y";
-    aarch64-darwin = "1zd5n98rq35qvv8s35fbjh7afx9capza795ad69i9f3c3r8g4wls";
+    x86_64-linux = "1pljw71yfp05cng7xsxjwv53fjhdq9czpg4r216igi24nz3zmz2h";
+    aarch64-linux = "1v2v1zl9m8f8mqhnkka41qnlbig41q9jdq4z49mjps129jdl395r";
+    x86_64-darwin = "123ysqxqmiwvjmcs41fg09fk0ngny11ymnp1y0nhknp24zcivlrg";
+    aarch64-darwin = "00c4xhsp522ma54kmg3iw8l4260rs25xwvka4q6cjawzl09yk4k7";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/enter/releases/download/v0.5.0/enter_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/enter/releases/download/v0.5.0/enter_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/enter/releases/download/v0.5.0/enter_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/enter/releases/download/v0.5.0/enter_Darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/enter/releases/download/v0.6.0/enter_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/enter/releases/download/v0.6.0/enter_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/enter/releases/download/v0.6.0/enter_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/enter/releases/download/v0.6.0/enter_Darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "enter";
-  version = "0.5.0";
+  version = "0.6.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
