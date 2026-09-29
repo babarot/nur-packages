@@ -6,30 +6,30 @@
 }:
 let
   inherit (stdenvNoCC.hostPlatform) system;
-  version = "0.1.1";
+  version = "0.2.0";
   base = "https://github.com/babarot/agent-recall/releases/download/${version}";
   assets = {
     aarch64-darwin = {
       name = "agent-recall-darwin-arm64";
-      sha256 = "8e0ab8ad1a144cb5e4678261b9bd67f1a42f00eb80d244bb2e1fd32d0ed13fe8";
+      sha256 = "c1bdb2d697903d4accbac56e0b85280bc395038eb3cffe44b107a05a3f2de4a6";
     };
     x86_64-darwin = {
       name = "agent-recall-darwin-x86_64";
-      sha256 = "15eb0ef23cdfbe6d76b40031c8a564d2e7c0df17577e05a5e9e191dca79cef96";
+      sha256 = "b5bb75ef2f931a72d6899ed3015107dc7b8cab6187b9dcc9d2fe75f9ec1b676b";
     };
     aarch64-linux = {
       name = "agent-recall-linux-arm64";
-      sha256 = "35f30a6278f55e87edf2354ce61805c3ddbd87913532f6cffd4b3b8f680960d5";
+      sha256 = "2b69e003e7767377d9b392aa1aff31f9947dbb322a4b8b7efb72cd4f7d495326";
     };
     x86_64-linux = {
       name = "agent-recall-linux-x86_64";
-      sha256 = "5c6f36a5c63cc3b8caff9fc81935d2f9a7644c237add068ac77f284b6f5d175d";
+      sha256 = "031d10f3f661c5cd6acd5a36b3a7581a09a0333df46ee08999348950b4304a49";
     };
   };
   asset = assets.${system} or (throw "agent-recall: unsupported system ${system}");
-  skills = fetchurl {
-    url = "${base}/agent-recall-skills.tar.gz";
-    sha256 = "46f164d77fd3e388a3c82463285b5d86d03b7c824bcb407091ff425d04b3c2a7";
+  plugin = fetchurl {
+    url = "${base}/agent-recall-plugin.tar.gz";
+    sha256 = "a39c8a8987d5db34abc89cda540c5f3ef7d2063b16e58e03f5b5c663f6280464";
   };
 in
 stdenvNoCC.mkDerivation {
@@ -46,11 +46,12 @@ stdenvNoCC.mkDerivation {
   # other fixups would break it
   dontFixup = true;
 
-  # Agent Skills land in share/skills/agent-recall/<name>/SKILL.md
+  # The Claude Code plugin (MCP server, SessionEnd hook, skills) lands in
+  # share/claude-plugin/agent-recall; its skills are under skills/<name>
   installPhase = ''
     install -Dm755 $src $out/bin/agent-recall
-    mkdir -p $out/share/skills/agent-recall
-    tar -xzf ${skills} -C $out/share/skills/agent-recall --strip-components=1
+    mkdir -p $out/share/claude-plugin/agent-recall
+    tar -xzf ${plugin} -C $out/share/claude-plugin/agent-recall
   '';
 
   meta = {
