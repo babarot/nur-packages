@@ -6,30 +6,30 @@
 }:
 let
   inherit (stdenvNoCC.hostPlatform) system;
-  version = "1.6.2";
+  version = "1.7.0";
   base = "https://github.com/babarot/claude-recall/releases/download/${version}";
   assets = {
     aarch64-darwin = {
       name = "claude-recall-darwin-arm64";
-      sha256 = "4d0d5885e4368a99746039acb758f8f69a9001e111584d9a81864ed0ba0bd66a";
+      sha256 = "577cdadfdca02dfafc2c8dbd21fac354234be51371fd339f3a46790e5a7f87ac";
     };
     x86_64-darwin = {
       name = "claude-recall-darwin-x86_64";
-      sha256 = "4ef06c57b62921a12d98c33d7b708090b1212db08d955b6225cab470ec1835ec";
+      sha256 = "bdc777a4a008d42d74f556d92baf16921f4a41f27a8db2f7ac591f13d80d60a7";
     };
     aarch64-linux = {
       name = "claude-recall-linux-arm64";
-      sha256 = "9979d1ce7c07ac699b3f6024909c8295794b7a291597b8de5ca438d24b5d5145";
+      sha256 = "7d096da8987621374b95b21c0f18f2aad883d6f7f446a6f1b84d0e33cf52d94e";
     };
     x86_64-linux = {
       name = "claude-recall-linux-x86_64";
-      sha256 = "b619d406fa7f4b25cde4e80428425a5a40324e0d5a8de7bb972f084dcad9b108";
+      sha256 = "0d97a12338e078ab8858a623da5889f3563e04c50bd2c27ac52b66bc5cf075e1";
     };
   };
   asset = assets.${system} or (throw "claude-recall: unsupported system ${system}");
   plugin = fetchurl {
     url = "${base}/claude-recall-plugin.tar.gz";
-    sha256 = "8192a85e6866e5ab206996cf9517dab42f443699018a65fc40ae8f38188899a1";
+    sha256 = "4eda768fba0d411511087dd210b631916763af78b8fb51c91f03cd80d14ecf78";
   };
 in
 stdenvNoCC.mkDerivation {
