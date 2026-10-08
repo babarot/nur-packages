@@ -6,30 +6,30 @@
 }:
 let
   inherit (stdenvNoCC.hostPlatform) system;
-  version = "1.7.2";
+  version = "1.8.0";
   base = "https://github.com/babarot/claude-recall/releases/download/${version}";
   assets = {
     aarch64-darwin = {
       name = "claude-recall-darwin-arm64";
-      sha256 = "7a4f3b529ff008cf0b8fb013c3778115e9f9af9b254fae079500bdc0db3fd1f7";
+      sha256 = "031412f7c419f70fe37e6d3e8e6307be4c43a6bcf6a8d8ca1fbd903959e44b37";
     };
     x86_64-darwin = {
       name = "claude-recall-darwin-x86_64";
-      sha256 = "bdea22913a83741112b993b28a65c1fb4c4ad4a45700d5a03ad624bab314cb10";
+      sha256 = "cbf164eaa066e8be65442eafd31bd326d9f0706f5624d92d5a174bf5a45940e8";
     };
     aarch64-linux = {
       name = "claude-recall-linux-arm64";
-      sha256 = "833c5b69251938db2cf1197534930a76de315e22509d15d688d942f754c23c9b";
+      sha256 = "b41cb19487afa09dbd4d03367a5b86062380e6b11dc1dcbe994f3e5bc6f66d07";
     };
     x86_64-linux = {
       name = "claude-recall-linux-x86_64";
-      sha256 = "fbdac042648cdc9ff4c3587af2416d51d99380401d6e675752c409f3acc57e9c";
+      sha256 = "6e6f90d669c0e4df200561097f5afbebb1c22f59aad0d83b7543d1386bda0829";
     };
   };
   asset = assets.${system} or (throw "claude-recall: unsupported system ${system}");
   plugin = fetchurl {
     url = "${base}/claude-recall-plugin.tar.gz";
-    sha256 = "9d92f4cb4d784e1a3412e52481d0f51860bc642522f70beb960e42a5bd0f5048";
+    sha256 = "214e50d8c9a5cd9ab84d2f697f6d0c67a270a1f65a8aeed39a09fa91c9054592";
   };
 in
 stdenvNoCC.mkDerivation {
@@ -45,8 +45,8 @@ stdenvNoCC.mkDerivation {
   # A static Go binary; stripping it again or patching it gains nothing
   dontFixup = true;
 
-  # The Claude Code plugin (MCP server, SessionEnd hook, skills) lands in
-  # share/claude-plugin/claude-recall; its skills are under skills/<name>
+  # The Claude Code plugin (MCP server, SessionEnd hook, hooks module) lands
+  # in share/claude-plugin/claude-recall
   installPhase = ''
     install -Dm755 $src $out/bin/recall
     mkdir -p $out/share/claude-plugin/claude-recall
