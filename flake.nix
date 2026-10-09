@@ -1,5 +1,5 @@
 {
-  description = "babarot's Nix packages, published by GoReleaser";
+  description = "babarot's Nix packages, from the prebuilt binaries of each release";
 
   inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 

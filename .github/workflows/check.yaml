@@ -1,0 +1,29 @@
+name: Check
+
+# GoReleaser and the release workflows of the tools push to main directly,
+# so this runs on those pushes too
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  packages:
+    strategy:
+      fail-fast: false
+      matrix:
+        # x86_64-darwin has no hosted runner left to check it on
+        os: [ubuntu-latest, ubuntu-24.04-arm, macos-latest]
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: cachix/install-nix-action@13d8dd58da0234aa297dedd986986ccb8e7f3e24 # v31.11.1
+      - name: Build and run every package
+        run: .github/scripts/check-packages.sh
