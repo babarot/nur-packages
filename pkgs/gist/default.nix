@@ -9,24 +9,24 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    i686-linux = "124yj7jqq79maagswp06586p029mi1bcsvayrczh2jn4jlppmfak";
-    x86_64-linux = "171hg75yh151zj5izpffa4pkz9b9gcp67005w2msd3y01q26agkv";
-    aarch64-linux = "0hdyknkymp9q92km6r9bgm9jxi03n88nzqwlqbm2gcp03j8b2zcb";
-    x86_64-darwin = "0326nidd12bm70x9wgv8lh4vkkx06jz4n2m1mypl1f7dqnb5xh16";
-    aarch64-darwin = "0a10bvnvaw975dplx8d8icj9yinpr39hyqkc12d5q2jdz6gz1p0x";
+    i686-linux = "00dixwl4n5vk3xmb540s0fz9zamfrrb1ifnnvhqr81rcp007lci2";
+    x86_64-linux = "0vsrzmpcz20lr71g1j94b549c7shbffylkb0mbjhrcb8wv14chsx";
+    aarch64-linux = "1yyz01hjcrv2vqpm2gkjsspwiyinssi4fifwlh2rfs3xq373mcg5";
+    x86_64-darwin = "1r7jqmrmxyax92qf0pv87yy83fnsbb4ad4bbi1p2chnc92dkmq4q";
+    aarch64-darwin = "1yj2ygpijr9rw44if10znrdl408w6bwpkk0i1qsy6zykqzri3ip2";
   };
 
   urlMap = {
-    i686-linux = "https://github.com/babarot/gist/releases/download/v1.2.7/gist_Linux_i386.tar.gz";
-    x86_64-linux = "https://github.com/babarot/gist/releases/download/v1.2.7/gist_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gist/releases/download/v1.2.7/gist_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v1.2.7/gist_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v1.2.7/gist_Darwin_arm64.tar.gz";
+    i686-linux = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Linux_i386.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gist";
-  version = "1.2.7";
+  version = "1.2.8";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
