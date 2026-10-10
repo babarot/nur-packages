@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0mzrgsdhv0sbv5q5sw9zgm72d6wjbbgvlhimfnfzqyxnsylmp87l";
-    aarch64-linux = "0j72266qjaidnjb7zcm26szl6pv66l7iv1gpyna7829qy9ygmyg7";
-    x86_64-darwin = "187nass8aksgs71symmlnhn85m847sh0zv9p5jx3zlshqsj3561r";
-    aarch64-darwin = "15pjk75b47ny7y3lpn16df62q4vm5pk31l6d5z15dilljyqa5rz7";
+    x86_64-linux = "0pvgc506vr3607snq3dk63j7jk7ri9xf1g9i16fyjwyw3b27pr63";
+    aarch64-linux = "0hpqllm7s81vhx1s5qb6xcnl62m1h1glml8ha1xr3xslyvkgcczf";
+    x86_64-darwin = "1qacpdpf5y57x24xs1c0zw1s9y2f11zqi9p4pdm0x1xy4zqkvklb";
+    aarch64-darwin = "165w9irqdl7phnxif9xlabgc3m65xnbnxyvv5r87bl0jyddll2rp";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/syno/releases/download/v0.4.0/syno_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/syno/releases/download/v0.4.0/syno_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/syno/releases/download/v0.4.0/syno_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/syno/releases/download/v0.4.0/syno_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/syno/releases/download/v0.5.0/syno_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/syno/releases/download/v0.5.0/syno_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/syno/releases/download/v0.5.0/syno_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/syno/releases/download/v0.5.0/syno_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "syno";
-  version = "0.4.0";
+  version = "0.5.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
