@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "040zklq90b0rp39n7p9vxrvgm1ixlmnbp5lgjv1qyxhlykxbdnrb";
-    aarch64-linux = "02pqig90029qgcjsv4lrm3pxm7h6mk0i6scd58b9cg9m40ld03bb";
-    x86_64-darwin = "1izymvrcxg4cbra2xbm5025676k56nvvyf07vj1vc63agmpmzx6j";
-    aarch64-darwin = "0rn4g4146ix950qw7ydsdlwhsdzqjn58v1sxgrmmg46gx7p6l8b5";
+    x86_64-linux = "17l0jaxzz91pm7fibdv69ma0xz29935s8wlsrkmxgaknzzj3022m";
+    aarch64-linux = "09a8q708q7gz7fp2031nibnxah65pkc10z49j7fkw0sr5irwpzk0";
+    x86_64-darwin = "0znx34hlznlbf1i6skb9v2228lwc5ic71ayim9d7z7rksjwvq0cz";
+    aarch64-darwin = "10qggnxc2a0vfr0a9h2h9jbrjxq3w5v7r66kvfn373qq1qzm7nbw";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/gh-infra/releases/download/v0.14.1/gh-infra_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gh-infra/releases/download/v0.14.1/gh-infra_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gh-infra/releases/download/v0.14.1/gh-infra_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gh-infra/releases/download/v0.14.1/gh-infra_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gh-infra/releases/download/v0.15.0/gh-infra_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gh-infra/releases/download/v0.15.0/gh-infra_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gh-infra/releases/download/v0.15.0/gh-infra_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gh-infra/releases/download/v0.15.0/gh-infra_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gh-infra";
-  version = "0.14.1";
+  version = "0.15.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
