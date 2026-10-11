@@ -6,23 +6,23 @@
 }:
 let
   inherit (stdenvNoCC.hostPlatform) system;
-  version = "0.3.1";
+  version = "0.4.0";
   assets = {
     aarch64-darwin = {
       name = "c-c-statusline-darwin-arm64";
-      sha256 = "7f1f13b0ca34eda48870188bee99a8fc8e313493b2d432ce63b40cd601557b74";
+      sha256 = "24dece8b64b9a239a2e31f2de73289dfa8f337ed57e20fe94c8ef206d1cbcf6f";
     };
     x86_64-darwin = {
       name = "c-c-statusline-darwin-x86_64";
-      sha256 = "341ab640e4fdd07ce80698847ebeb6db6a61a84cd439bb56211e01c18ee0a9e0";
+      sha256 = "30b2c5af15645237719d6c5df2f5c4460cbc41e72086ae7227ef180f4685f51c";
     };
     aarch64-linux = {
       name = "c-c-statusline-linux-arm64";
-      sha256 = "1f19daf98f5a9d2f7fa400ea584244de45372b0449603feb111b36ac7a61a768";
+      sha256 = "10be9727267a2bbd522763842f47bdcc1cc49e032a2f14b47d543c57bade4a08";
     };
     x86_64-linux = {
       name = "c-c-statusline-linux-x86_64";
-      sha256 = "199638c3efffcf8d2d702c49ee6b32eaf5fa6933c930e11945fe4a01ea37179b";
+      sha256 = "745e99ba242b18a428372e3546c614f294030eca22e42d1f7b4ce962d1b30788";
     };
   };
   asset = assets.${system} or (throw "c-c-statusline: unsupported system ${system}");
