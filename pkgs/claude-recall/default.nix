@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0n31dpz7pmwm1dmkyqxmkbg1cqklk3kbndx771bz38c4fwv7ng4s";
-    aarch64-linux = "1kmqnwy0dms2viw6virw056clm65jhnc090ircki8cp1d542jz1r";
-    x86_64-darwin = "0alba3nka8581dy93xsi4p0vdgmqi12xd02xix42kpjcffsakncd";
-    aarch64-darwin = "1fkvdjzs9zis5jf2arnjlms5aqfi1h68rn4cq80lf29140765w87";
+    x86_64-linux = "0wy1qlp5862av4am5p47hdgrkzix895wn6xk49w3c1bx7lha8q5m";
+    aarch64-linux = "1h004yy916zc6hf1nmwysrbrss6s96h3gxjjyqz4r83m7myhds4k";
+    x86_64-darwin = "00z8vbn8j4vrvya0ywj4n6wilypaj3wj0fj0a143w9v5q7rlhfan";
+    aarch64-darwin = "0nhz1nid0f42fac6mlmqx81fc0mwcf720cf6r995acnf8xcyvkdk";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/claude-recall/releases/download/v1.13.0/claude-recall_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/claude-recall/releases/download/v1.13.0/claude-recall_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/claude-recall/releases/download/v1.13.0/claude-recall_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/claude-recall/releases/download/v1.13.0/claude-recall_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/claude-recall/releases/download/v1.14.0/claude-recall_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/claude-recall/releases/download/v1.14.0/claude-recall_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/claude-recall/releases/download/v1.14.0/claude-recall_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/claude-recall/releases/download/v1.14.0/claude-recall_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "claude-recall";
-  version = "1.13.0";
+  version = "1.14.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
