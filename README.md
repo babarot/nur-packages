@@ -27,10 +27,14 @@ Every package installs the prebuilt binary of a release. Nothing here is built f
 | [c-c-statusline](https://github.com/babarot/c-c-statusline) | `c-c-statusline` | The tool's release workflow | `deno compile`, dynamically linked |
 | [changed-objects](https://github.com/babarot/changed-objects) | `changed-objects` | GoReleaser | Go, statically linked |
 | [claude-recall](https://github.com/babarot/claude-recall) | `recall` | GoReleaser | Go, statically linked |
+| [drop](https://github.com/babarot/drop) | `drop` | GoReleaser | `bun build --compile`, dynamically linked |
 | [enter](https://github.com/babarot/enter) | `enter` | GoReleaser | Go, statically linked |
+| [gh-desk](https://github.com/babarot/gh-desk) | `gh-desk` | GoReleaser | Go, statically linked |
 | [gh-infra](https://github.com/babarot/gh-infra) | `gh-infra` | GoReleaser | Go, statically linked |
 | [gist](https://github.com/babarot/gist) | `gist` | GoReleaser | Go, statically linked |
+| [gomi](https://github.com/babarot/gomi) | `gomi` | GoReleaser | Go, statically linked |
 | [naminator](https://github.com/babarot/naminator) | `naminator` | GoReleaser | Go, statically linked |
+| [regomark](https://github.com/babarot/regomark) | `regomark` | GoReleaser | Go, statically linked |
 | [syno](https://github.com/babarot/syno) | `syno` | GoReleaser | Go, statically linked |
 
 claude-recall also installs its Claude Code plugin under `share/claude-plugin/claude-recall`.
@@ -59,6 +63,8 @@ Run it locally for the current system with:
 
 - A Go tool: add a `nix` section to its `.goreleaser.yaml`. See [babarot/naminator](https://github.com/babarot/naminator) for an example. GoReleaser needs a token that can push here, and `nix-hash` on the release runner.
 - Anything GoReleaser cannot package: generate the derivation in the tool's release workflow, as [babarot/c-c-statusline](https://github.com/babarot/c-c-statusline) does.
+
+Either way, the command must print its version and exit 0 when run with `--version`, since the [Check](#check) runs it so; a `version` subcommand alone fails it.
 
 Any directory under `pkgs/` is picked up by `default.nix` and the flake, so nothing else needs to change here.
 
