@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "1a0vjdnqs29wd9laaapa0yxpcl1cmj4jd9wa3158dafqm1cmfarz";
-    aarch64-linux = "1czir95fgzvb6nxgm3l6wss2x10hm2h7q2iz719hygcg8fab61m0";
-    x86_64-darwin = "18gq3hflglwjya4f8qfwjhp6jn0rc03gsgskq6ggrs6mw5vq2m7q";
-    aarch64-darwin = "1aq8mcb17yns0jpxm8rc0y2gv0k905mkngf09c88ag8rqvavb4p6";
+    x86_64-linux = "0hygigsjk7ps5x5qp22hyipx5xnjdmpw75cvhg8qdzfkwysnyhhk";
+    aarch64-linux = "0dd7gxblcvhmw2544vm4fv6z5xf25rmrk1w4sxb3gksipqksw46s";
+    x86_64-darwin = "03bykg34nsjbw878b6c92yidxf2r4cshlv0ac8j27q854ivc5fn7";
+    aarch64-darwin = "0zfanbvw6nk6w9ry1r3h9nwyvk3s8jpm9rg8dvri6jgcayxd315f";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/gh-desk/releases/download/v0.4.0/gh-desk_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gh-desk/releases/download/v0.4.0/gh-desk_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gh-desk/releases/download/v0.4.0/gh-desk_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gh-desk/releases/download/v0.4.0/gh-desk_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gh-desk/releases/download/v0.5.0/gh-desk_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gh-desk/releases/download/v0.5.0/gh-desk_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gh-desk/releases/download/v0.5.0/gh-desk_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gh-desk/releases/download/v0.5.0/gh-desk_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gh-desk";
-  version = "0.4.0";
+  version = "0.5.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
