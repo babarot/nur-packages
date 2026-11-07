@@ -9,24 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    i686-linux = "00dixwl4n5vk3xmb540s0fz9zamfrrb1ifnnvhqr81rcp007lci2";
-    x86_64-linux = "0vsrzmpcz20lr71g1j94b549c7shbffylkb0mbjhrcb8wv14chsx";
-    aarch64-linux = "1yyz01hjcrv2vqpm2gkjsspwiyinssi4fifwlh2rfs3xq373mcg5";
-    x86_64-darwin = "1r7jqmrmxyax92qf0pv87yy83fnsbb4ad4bbi1p2chnc92dkmq4q";
-    aarch64-darwin = "1yj2ygpijr9rw44if10znrdl408w6bwpkk0i1qsy6zykqzri3ip2";
+    x86_64-linux = "1k6aggwm37xw3ipvhhq8jm61q882lvwj1pm1rrxzlqafdp9hllja";
+    aarch64-linux = "0ni1d9hpk9m7f4gwjrz59r0dj0qj0c0qghvwa2kn1mf0i1jhxx72";
+    x86_64-darwin = "18jjajl7vpv4a3s787ynzfhn340cxcgkclvykd4kv6yx5v9n7ya1";
+    aarch64-darwin = "108yw4x8wjj651kawy2jw9vnlvk0v8613rwfiii2f3kdp368z51h";
   };
 
   urlMap = {
-    i686-linux = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Linux_i386.tar.gz";
-    x86_64-linux = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v1.2.8/gist_Darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gist";
-  version = "1.2.8";
+  version = "2.0.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
@@ -54,7 +52,6 @@ stdenvNoCC.mkDerivation {
     platforms = [
       "aarch64-darwin"
       "aarch64-linux"
-      "i686-linux"
       "x86_64-darwin"
       "x86_64-linux"
     ];
