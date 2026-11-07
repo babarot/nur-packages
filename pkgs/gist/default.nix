@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "1k6aggwm37xw3ipvhhq8jm61q882lvwj1pm1rrxzlqafdp9hllja";
-    aarch64-linux = "0ni1d9hpk9m7f4gwjrz59r0dj0qj0c0qghvwa2kn1mf0i1jhxx72";
-    x86_64-darwin = "18jjajl7vpv4a3s787ynzfhn340cxcgkclvykd4kv6yx5v9n7ya1";
-    aarch64-darwin = "108yw4x8wjj651kawy2jw9vnlvk0v8613rwfiii2f3kdp368z51h";
+    x86_64-linux = "0dilfkqzxpdl04jh721bsmwlamh3dbxj3j5pivd7vq7b04wkwm9b";
+    aarch64-linux = "0wk3bz99k499bjpslrg67ckmphzyk2w4q829mn9cvwa15w8m71lc";
+    x86_64-darwin = "1xdvfqzmsw4lhwqgyzs4mffkhmnlbilhx1w29hi26y72nq4i0yhp";
+    aarch64-darwin = "0wgxk4ga6sxhyfvf69l1k8zq76csl1yyy35yblbcxdxb8l8cf2k4";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v2.0.0/gist_Darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gist";
-  version = "2.0.0";
+  version = "2.1.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
@@ -42,7 +42,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "A simple gist editor for CLI";
+    description = "Read and edit your GitHub Gists from the terminal";
     homepage = "https://github.com/babarot/gist";
     license = lib.licenses.mit;
     mainProgram = "gist";
