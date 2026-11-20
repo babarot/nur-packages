@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "1w0bnypn2mzpzhj6xbwwh6cwdb7fy2vaj7c5972sia11jqsdq5di";
-    aarch64-linux = "1vjgqigmgaa1q40wzhhd58bld5jikjpii6qa7lazdp062f7rf16v";
-    x86_64-darwin = "1yiphlml25grpsdbda79qyl4bsvsm4p7fhjk5c3rp7032ha7gl7s";
-    aarch64-darwin = "0cj19mkrwcy30kdhr66dcxpjba3zlw8qdd61xqgzrfhc4148jl85";
+    x86_64-linux = "0fgy77ahk1g7qzfsafhzm9j1varjk8hp5qc7k7m68xihfxq79c6m";
+    aarch64-linux = "0ihvmnzwi59vzblniv4k4s05rmm530plw62gibm2ryx8yf8nw8qs";
+    x86_64-darwin = "0vgwmrzbnxlpai0nx2qqdhdjnjw2whccq4n0xfxk9fynkbk53k5j";
+    aarch64-darwin = "0vvwa6dmkgr6gmdilwng4501krify6ypi4dsw92lz6r8skk57r53";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/gh-mini/releases/download/v0.2.2/gh-mini_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gh-mini/releases/download/v0.2.2/gh-mini_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gh-mini/releases/download/v0.2.2/gh-mini_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gh-mini/releases/download/v0.2.2/gh-mini_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gh-mini/releases/download/v0.3.0/gh-mini_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gh-mini/releases/download/v0.3.0/gh-mini_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gh-mini/releases/download/v0.3.0/gh-mini_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gh-mini/releases/download/v0.3.0/gh-mini_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gh-mini";
-  version = "0.2.2";
+  version = "0.3.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
