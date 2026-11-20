@@ -9,24 +9,24 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "02i4fly47nq69y5bqi862fgc0hnph9vb4mmrp0q93j7hd0vxbkaz";
-    armv6l-linux = "121rn4am9x2dkg2rp1fwjgvyry81gn4i43xw99qpa84yj9f3yp7a";
-    aarch64-linux = "0rabv8sykkym8i39dy3w3fyp8an44qz55vj8nmr2fsqh4kmqz256";
-    x86_64-darwin = "0y6z4kpi8cx2mmz2za0x81m94mx1a2ywgwkj3gh6yj3bj4qifahk";
-    aarch64-darwin = "12giadj31xp7rn58318jn8zz21n2x4sx1ryh19rq59c65v3knjwj";
+    x86_64-linux = "1d3ygcjg16dfcwzwl903jxwk2w4qn5lsqix0wx9kks454jl64x9g";
+    armv6l-linux = "0rp85mjj9gzaihji7w23b8wmlf1c6s98bjb0mj693srv25jpwr2v";
+    aarch64-linux = "125r8jb5d31805ygr1lhmgczsv8xwrkm1nyrdn4nrphf2zsmn5ip";
+    x86_64-darwin = "0mg2fyqbakksn1phiiszd2234f86gix88bpasrakdkphmakh7sin";
+    aarch64-darwin = "12bgbp0jrwyp2diqmfcj98mlvdrhjrcidb1sf50jdbq93mrds7f1";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/gomi/releases/download/v1.10.1/gomi_Linux_x86_64.tar.gz";
-    armv6l-linux = "https://github.com/babarot/gomi/releases/download/v1.10.1/gomi_Linux_armv6.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gomi/releases/download/v1.10.1/gomi_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gomi/releases/download/v1.10.1/gomi_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gomi/releases/download/v1.10.1/gomi_Darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gomi/releases/download/v1.11.0/gomi_Linux_x86_64.tar.gz";
+    armv6l-linux = "https://github.com/babarot/gomi/releases/download/v1.11.0/gomi_Linux_armv6.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gomi/releases/download/v1.11.0/gomi_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gomi/releases/download/v1.11.0/gomi_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gomi/releases/download/v1.11.0/gomi_Darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gomi";
-  version = "1.10.1";
+  version = "1.11.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
