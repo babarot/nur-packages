@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0dilfkqzxpdl04jh721bsmwlamh3dbxj3j5pivd7vq7b04wkwm9b";
-    aarch64-linux = "0wk3bz99k499bjpslrg67ckmphzyk2w4q829mn9cvwa15w8m71lc";
-    x86_64-darwin = "1xdvfqzmsw4lhwqgyzs4mffkhmnlbilhx1w29hi26y72nq4i0yhp";
-    aarch64-darwin = "0wgxk4ga6sxhyfvf69l1k8zq76csl1yyy35yblbcxdxb8l8cf2k4";
+    x86_64-linux = "04pzihxdn6j6nfy8z16n54cqs5646sj1d4vf3xv6gajidl9rbhl2";
+    aarch64-linux = "1b38n86ig0ym4ywqkxwy83hbxdqdsk07rxc8fkw0zppdi49qpz7z";
+    x86_64-darwin = "1x98wnma8arif3aw2m430ysawh4wbzs1pl068f14k6ziwv6rwwpd";
+    aarch64-darwin = "0qdchbblnh0dkdrqcdpisl29242ay9h03ga0m8aldp6v8hgb3fpy";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Darwin_x86_64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v2.1.0/gist_Darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/gist/releases/download/v2.2.0/gist_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/gist/releases/download/v2.2.0/gist_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/gist/releases/download/v2.2.0/gist_Darwin_x86_64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/gist/releases/download/v2.2.0/gist_Darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "gist";
-  version = "2.1.0";
+  version = "2.2.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
