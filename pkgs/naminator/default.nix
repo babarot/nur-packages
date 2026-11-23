@@ -10,22 +10,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0h1x7k6vs7c6zm6pcv969ifkfahxsk37skrqv5phl4yxnsi98xxw";
-    aarch64-linux = "08hk9kwz13i9qbsbwgb8xf82a6izmf5wyriw7ji9mc943mysavnd";
-    x86_64-darwin = "169h9ddj78igw41ifbn4aphm9d39avpxr41m8vym39z39r06dchk";
-    aarch64-darwin = "08whbigdf4vdr5r2v35lgxzgcg3xw8f1psnd1k7kx3r22lm6bh9s";
+    x86_64-linux = "09l3h86v6wh3bdnhk3l58jzxbnplf2y8rifchh1fjncapjzkf536";
+    aarch64-linux = "0a8zvg9p9z1cb7zx9pdy05z9sm66qxw0pc7w1lg0y93hwjfzi6b7";
+    x86_64-darwin = "0kbwy93pg23pr8l38gjz0vkwff4d5kkdnsivdz66pg12ivsip6jg";
+    aarch64-darwin = "06irgsgw71g56zvx2birlc1jllmksc3v3axg37mwda9bg4y5sjfx";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/naminator/releases/download/v0.2.7/naminator_Linux_x86_64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/naminator/releases/download/v0.2.7/naminator_Linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/naminator/releases/download/v0.2.7/naminator_Darwin_x86_64.zip";
-    aarch64-darwin = "https://github.com/babarot/naminator/releases/download/v0.2.7/naminator_Darwin_arm64.zip";
+    x86_64-linux = "https://github.com/babarot/naminator/releases/download/v0.3.0/naminator_Linux_x86_64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/naminator/releases/download/v0.3.0/naminator_Linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/naminator/releases/download/v0.3.0/naminator_Darwin_x86_64.zip";
+    aarch64-darwin = "https://github.com/babarot/naminator/releases/download/v0.3.0/naminator_Darwin_arm64.zip";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "naminator";
-  version = "0.2.7";
+  version = "0.3.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
