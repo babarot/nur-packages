@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "0xbxj3z8lrn20n8wsqb809sxnxwjky0spsyzwv3qzqa50s2p7hdm";
-    aarch64-linux = "191v4pxswmv8xjr2mms95idf96mdfprgnfzwjpvch43fkhxarzsq";
-    x86_64-darwin = "0n5s5dv5qn4dpd4vsdkaxbpc27i0n2yyyh8zq7pawamz8rlky4m3";
-    aarch64-darwin = "13j6mvdlagik7n0j4l5aqf5y7qb91dhn42cq33rax4yiba6j92la";
+    x86_64-linux = "0nhif1kzs9gjk06qw1rrp0vvnnrd033lilk8s0dz5l1bw6dm9vps";
+    aarch64-linux = "1dhnqcb65v8w3y334rirsrlnr7scvyw0l7nxxhyhkmljblg2vxmg";
+    x86_64-darwin = "1ayg05p3bvg84aigcy7db6z574mzm5yfm628cs1y43xg3xnjvzlg";
+    aarch64-darwin = "06c7akk86d5vj0schmfhzmh54hh46yj30qmz69s96fh8zy5qz4aa";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/regomark/releases/download/v0.4.0/regomark_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/regomark/releases/download/v0.4.0/regomark_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/regomark/releases/download/v0.4.0/regomark_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/regomark/releases/download/v0.4.0/regomark_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/regomark/releases/download/v0.5.0/regomark_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/regomark/releases/download/v0.5.0/regomark_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/regomark/releases/download/v0.5.0/regomark_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/regomark/releases/download/v0.5.0/regomark_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "regomark";
-  version = "0.4.0";
+  version = "0.5.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
