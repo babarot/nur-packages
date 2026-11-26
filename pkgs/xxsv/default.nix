@@ -9,22 +9,22 @@
 let
   inherit (stdenvNoCC.hostPlatform) system;
   shaMap = {
-    x86_64-linux = "166xi9zw0kv7ry6g5l57xmsg8vm9psqgzj4npcghg72yxscwz810";
-    aarch64-linux = "0y5z8yq4sdcxigcrbdr3js74bpih86dklym6l6hli8fsnkkqgxpm";
-    x86_64-darwin = "0iss0l9p9nawlz2qn4ij5x82gzlsj2ww1jbmbq13ax3i6ixadjzf";
-    aarch64-darwin = "1pgi62xck4kikbfb47bzw7kjc2ayanbk9dmxid2vwnm8rgm7lvm9";
+    x86_64-linux = "09z0akkh8k7ckljm5ayr33s6icqh3k8bic3sbik00nln7wc8v0zx";
+    aarch64-linux = "1av7f7bm6wx8lzmq4di81f3ygl4fz8mwyxlh3jm8cb3vsq41djg2";
+    x86_64-darwin = "11gv93jz2yavh63slpkf00whx1ni15h0x42633b7nswpfww6xrys";
+    aarch64-darwin = "14d0yj9ar5zyj07hhysqy6w7vszimabiacrdlrwjc4yavhv8adlr";
   };
 
   urlMap = {
-    x86_64-linux = "https://github.com/babarot/xxsv/releases/download/v0.1.0/xxsv_linux_amd64.tar.gz";
-    aarch64-linux = "https://github.com/babarot/xxsv/releases/download/v0.1.0/xxsv_linux_arm64.tar.gz";
-    x86_64-darwin = "https://github.com/babarot/xxsv/releases/download/v0.1.0/xxsv_darwin_amd64.tar.gz";
-    aarch64-darwin = "https://github.com/babarot/xxsv/releases/download/v0.1.0/xxsv_darwin_arm64.tar.gz";
+    x86_64-linux = "https://github.com/babarot/xxsv/releases/download/v0.2.0/xxsv_linux_amd64.tar.gz";
+    aarch64-linux = "https://github.com/babarot/xxsv/releases/download/v0.2.0/xxsv_linux_arm64.tar.gz";
+    x86_64-darwin = "https://github.com/babarot/xxsv/releases/download/v0.2.0/xxsv_darwin_amd64.tar.gz";
+    aarch64-darwin = "https://github.com/babarot/xxsv/releases/download/v0.2.0/xxsv_darwin_arm64.tar.gz";
   };
 in
 stdenvNoCC.mkDerivation {
   pname = "xxsv";
-  version = "0.1.0";
+  version = "0.2.0";
   src = fetchurl {
     url = urlMap.${system};
     sha256 = shaMap.${system};
@@ -42,7 +42,7 @@ stdenvNoCC.mkDerivation {
   '';
 
   meta = {
-    description = "Show a CSV, TSV or JSONL file as a table in the browser, kept up to date as you edit it";
+    description = "Show a CSV, TSV, LTSV or JSONL file as a table in the browser, kept up to date as you edit it";
     homepage = "https://github.com/babarot/xxsv";
     license = lib.licenses.mit;
     mainProgram = "xxsv";
